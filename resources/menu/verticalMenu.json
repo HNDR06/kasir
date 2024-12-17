@@ -1,0 +1,56 @@
+{
+  "menu": [
+    {
+      "url": "home",
+      "name": "Home",
+      "icon": "menu-icon tf-icons ti ti-smart-home",
+      "slug": "pages-home"
+    },
+    {
+      "icon": "menu-icon tf-icons ti ti-file",
+      "name": "Data Master",
+      "slug": "pages-page-2",
+      "submenu": [
+        {
+          "url": "/list-menu",
+          "name": "Daftar Menu",
+          "slug": "dashboard-analytics"
+        },
+        {
+          "url": "/list-member",
+          "name": "Customer Member",
+          "slug": "dashboard-analytics"
+        },
+        {
+          "url": "/list-user",
+          "name": "List User",
+          "slug": "dashboard-analytics"
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "icon": "menu-icon tf-icons ti ti-login",
+      "slug": "auth-login-basic",
+      "submenu": [
+        {
+          "url": "/list-order",
+          "name": "All Order",
+          "slug": "dashboard-analytics"
+        }
+      ]
+    },
+    {
+      "name": "Laporan",
+      "icon": "menu-icon tf-icons ti ti-user",
+      "slug": "auth-register-basic",
+      "submenu": [
+        {
+          "url": "/laporan-penjualan",
+          "name": "Transaksi Penjualan",
+          "slug": "dashboard-analytics"
+        }
+      ]
+    }
+  ]
+}
