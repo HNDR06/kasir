@@ -37,17 +37,7 @@
                                     class="app-brand-text demo text-heading fw-bold">{{ config('variables.templateName') }}</span>
                             </a>
                         </div>
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>
-                                            {{ $error }}
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                        @include('content.authentications.notiferror')
                         <!-- /Logo -->
                         <h4 class="mb-1">Welcome to {{ config('variables.templateName') }}!</h4>
                         <p class="mb-6">Silahkan Masukan Username dan Password</p>
@@ -55,16 +45,16 @@
                         <form id="formAuthentication" class="mb-4" action="{{ url('/login') }}" method="POST">
                             @csrf
                             <div class="mb-6">
-                                <label for="email" class="form-label">Username</label>
+                                <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" name="email"
-                                    placeholder="Enter your email or username" autofocus>
+                                    placeholder="Enter your email or username" required value="{{ old('email') }}" autofocus >
                             </div>
                             <div class="mb-6 form-password-toggle">
                                 <label class="form-label" for="password">Password</label>
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" class="form-control" name="password"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" />
+                                        aria-describedby="password" required value="{{ old('password') }}"/>
                                     <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                                 </div>
                             </div>

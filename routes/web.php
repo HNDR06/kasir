@@ -13,20 +13,29 @@ use App\Http\Controllers\pages\MiscError;
 use App\Http\Controllers\authentications\LoginBasic;
 use App\Http\Controllers\authentications\RegisterBasic;
 
-// Main Page Route
-Route::get('/', [LoginBasic::class, 'index'])->name('auth-login-basic');
+// Login Route
+Route::middleware('login')->group(function () {
+Route::get('/login', [LoginBasic::class, 'index'])->name('login');
 Route::post('/login', [LoginBasic::class, 'login'])->name('login');
-Route::get('/home', [HomePage::class, 'index'])->name('pages-home');
+});
+
+// Logout Route
+Route::get('/logout', [LoginBasic::class, 'logout'])->name('logout');
+
+// Register Route
 Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
 Route::post('/register', [RegisterBasic::class, 'register'])->name('register');
 
-
-Route::get('/list-menu', [Menu::class, 'index'])->name('pages-list-menu');
-Route::get('/list-user', [User::class, 'index'])->name('pages-list-user');
-Route::get('/list-member', [Member::class, 'index'])->name('pages-list-member');
-Route::get('/list-order', [Order::class, 'index'])->name('pages-list-order');
-Route::get('/laporan-penjualan', [Penjualan::class, 'index'])->name('pages-laporan-penjualan');
-Route::get('/page-2', [Page2::class, 'index'])->name('pages-page-2');
+//main route
+Route::middleware('auth')->group(function () {
+  Route::get('/home', [HomePage::class, 'index'])->name('home');
+  Route::get('/list-menu', [Menu::class, 'index'])->name('pages-list-menu');
+  Route::get('/list-user', [User::class, 'index'])->name('pages-list-user');
+  Route::get('/list-member', [Member::class, 'index'])->name('pages-list-member');
+  Route::get('/list-order', [Order::class, 'index'])->name('pages-list-order');
+  Route::get('/laporan-penjualan', [Penjualan::class, 'index'])->name('pages-laporan-penjualan');
+  Route::get('/page-2', [Page2::class, 'index'])->name('pages-page-2');
+});
 
 // locale
 Route::get('/lang/{locale}', [LanguageController::class, 'swap']);

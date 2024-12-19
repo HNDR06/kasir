@@ -180,16 +180,12 @@
                 @if (Auth::check())
                     <li>
                         <div class="d-grid px-2 pt-2 pb-1">
-                            <a class="btn btn-sm btn-danger d-flex" href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <a class="btn btn-sm btn-danger d-flex" href="{{ route('logout') }}">
                                 <small class="align-middle">Logout</small>
                                 <i class="ti ti-logout ms-2 ti-14px"></i>
                             </a>
                         </div>
                     </li>
-                    <form method="POST" id="logout-form" action="{{ route('logout') }}">
-                        @csrf
-                    </form>
                 @else
                     <li>
                         <div class="d-grid px-2 pt-2 pb-1">

@@ -23,9 +23,15 @@ class LoginBasic extends Controller
     // dd($data);
 
     if (Auth::attempt($data)) {
-      return redirect()->route('pages-home');
+      return redirect()->route('home');
     } else {
-      return redirect()->route('auth-login-basic')->withErrors('Username dan Password Tidak Sesuai')->withInput();
+      return redirect()->route('login')->withErrors('Username dan Password Tidak Sesuai')->withInput();
     }
+  }
+
+  public function logout()
+  {
+    Auth::logout();
+    return redirect()->route('login')->with('success','Berhasil Logout');
   }
 }
