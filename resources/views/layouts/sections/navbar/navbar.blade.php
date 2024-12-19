@@ -94,10 +94,10 @@
                                     @if (Auth::check())
                                         {{ Auth::user()->name }}
                                     @else
-                                        John Doe
+                                        Guest
                                     @endif
                                 </h6>
-                                <small class="text-muted">Admin</small>
+                                <small class="text-muted">Guest</small>
                             </div>
                         </div>
                     </a>

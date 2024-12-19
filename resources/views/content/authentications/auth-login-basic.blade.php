@@ -104,6 +104,10 @@
                                 <i class="tf-icons ti ti-brand-google-filled"></i>
                             </a>
                         </div>
+                      <br>
+                      <div class="mb-6">
+                        <a href={{ route('guestmenu') }}><button class="btn btn-primary d-grid w-100">Guest Login</button></a>
+                      </div>
                     </div>
                 </div>
                 <!-- /Register -->

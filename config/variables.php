@@ -3,7 +3,7 @@
 return [
   "creatorName" => "UPB TI.23.B2",
   "creatorUrl" => "https://hendrawweb.my.id",
-  "templateName" => "Kasir UPB V1.0",
+  "templateName" => "Resto UPB V1.0",
   "templateSuffix" => "Bootstrap Admin Template",
   "templateVersion" => "2.0.0",
   "templateFree" => false,

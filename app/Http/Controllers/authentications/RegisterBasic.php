@@ -33,6 +33,6 @@ class RegisterBasic extends Controller
     ];
 
     User::create($data);
-    return redirect()->route('auth-login-basic');
+    return redirect()->route('login')->with('success','Berhasil Register');;
   }
 }

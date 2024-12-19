@@ -12,9 +12,11 @@ use App\Http\Controllers\pages\Page2;
 use App\Http\Controllers\pages\MiscError;
 use App\Http\Controllers\authentications\LoginBasic;
 use App\Http\Controllers\authentications\RegisterBasic;
+use App\Http\Controllers\MenuController;
 
 // Login Route
 Route::middleware('login')->group(function () {
+  Route::get('/', [LoginBasic::class, 'index'])->name('login');
 Route::get('/login', [LoginBasic::class, 'index'])->name('login');
 Route::post('/login', [LoginBasic::class, 'login'])->name('login');
 });
@@ -36,6 +38,10 @@ Route::middleware('auth')->group(function () {
   Route::get('/laporan-penjualan', [Penjualan::class, 'index'])->name('pages-laporan-penjualan');
   Route::get('/page-2', [Page2::class, 'index'])->name('pages-page-2');
 });
+
+// Guest Route
+Route::get('/guestmenu', [MenuController::class, 'guestmenu'])->name('guestmenu');
+
 
 // locale
 Route::get('/lang/{locale}', [LanguageController::class, 'swap']);

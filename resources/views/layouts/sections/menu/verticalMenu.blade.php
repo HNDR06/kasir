@@ -1,4 +1,5 @@
 @php
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 $configData = Helper::appClasses();
 @endphp
@@ -23,7 +24,6 @@ $configData = Helper::appClasses();
   <div class="menu-inner-shadow"></div>
 
   <ul class="menu-inner py-1">
-    @foreach ($menuData[0]->menu as $menu)
 
       {{-- adding active and open class if child is active --}}
 
@@ -34,6 +34,9 @@ $configData = Helper::appClasses();
         </li>
       @else
 
+      @if (isset(Auth::user()->id) != '')
+
+      @foreach ($menuData[0]->menu as $menu)
       {{-- active menu method --}}
       @php
       $activeClass = null;
@@ -75,8 +78,11 @@ $configData = Helper::appClasses();
           @include('layouts.sections.menu.submenu',['menu' => $menu->submenu])
         @endisset
       </li>
-      @endif
     @endforeach
+
+    @endif
+
+    @endif
   </ul>
 
 </aside>

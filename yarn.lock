@@ -2463,6 +2463,11 @@ bootstrap-daterangepicker@3.1.0:
     jquery ">=1.10"
     moment "^2.9.0"
 
+bootstrap-icons@^1.11.3:
+  version "1.11.3"
+  resolved "https://registry.npmjs.org/bootstrap-icons/-/bootstrap-icons-1.11.3.tgz"
+  integrity sha512-+3lpHrCw/it2/7lBL15VR0HEumaBss0+f/Lb6ZvHISn1mlK83jjFpooTLsMWbIjJMDjDjOExMsTxnXSIT4k4ww==
+
 bootstrap-maxlength@1.10.1:
   version "1.10.1"
   resolved "https://registry.npmjs.org/bootstrap-maxlength/-/bootstrap-maxlength-1.10.1.tgz"
