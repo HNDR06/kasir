@@ -1,9 +1,9 @@
 <?php
 // Variables
 return [
-  "creatorName" => "UPB TI.23.B2",
+  "creatorName" => "UPB TI.23.B2 V1.0",
   "creatorUrl" => "https://hendrawweb.my.id",
-  "templateName" => "Resto UPB V1.0",
+  "templateName" => "Resto UPB",
   "templateSuffix" => "Bootstrap Admin Template",
   "templateVersion" => "2.0.0",
   "templateFree" => false,
