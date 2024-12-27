@@ -71,5 +71,10 @@ export default defineConfig({
     }),
     html(),
     libsWindowAssignment()
-  ]
+  ],
+  resolve: {
+    alias: {
+      $: 'jQuery'
+    }
+  }
 });

@@ -35,6 +35,7 @@
     "resolve-url-loader": "5.0.0",
     "sass": "1.77.5",
     "sass-loader": "14.0.0",
+    "sweetalert2": "^11.15.3",
     "vite": "5.2.13"
   },
   "overrides": {
@@ -149,7 +150,7 @@
     "hammerjs": "2.0.8",
     "highlight.js": "11.9.0",
     "jkanban": "1.3.1",
-    "jquery": "3.7.1",
+    "jquery": "^3.7.1",
     "jquery-datatables-checkboxes": "1.2.14",
     "jquery-sticky": "1.0.4",
     "jquery.repeater": "1.2.1",
@@ -173,7 +174,6 @@
     "shepherd.js": "11.2.0",
     "sortablejs": "1.15.2",
     "spinkit": "2.0.1",
-    "sweetalert2": "11.10.8",
     "swiper": "11.0.7",
     "timepicker": "1.14.1",
     "toastr": "2.1.4",

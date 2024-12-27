@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\language\LanguageController;
 use App\Http\Controllers\pages\HomePage;
-use App\Http\Controllers\pages\Menu;
 use App\Http\Controllers\pages\User;
 use App\Http\Controllers\pages\Member;
 use App\Http\Controllers\pages\Order;
@@ -13,12 +12,13 @@ use App\Http\Controllers\pages\MiscError;
 use App\Http\Controllers\authentications\LoginBasic;
 use App\Http\Controllers\authentications\RegisterBasic;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MessageController;
 
 // Login Route
 Route::middleware('login')->group(function () {
   Route::get('/', [LoginBasic::class, 'index'])->name('login');
-Route::get('/login', [LoginBasic::class, 'index'])->name('login');
-Route::post('/login', [LoginBasic::class, 'login'])->name('login');
+  Route::get('/login', [LoginBasic::class, 'index'])->name('login');
+  Route::post('/login', [LoginBasic::class, 'login'])->name('login');
 });
 
 // Logout Route
@@ -31,7 +31,8 @@ Route::post('/register', [RegisterBasic::class, 'register'])->name('register');
 //main route
 Route::middleware('auth')->group(function () {
   Route::get('/home', [HomePage::class, 'index'])->name('home');
-  Route::get('/list-menu', [Menu::class, 'index'])->name('pages-list-menu');
+  Route::get('/list-menu', [MenuController::class, 'listmenu'])->name('listmenu');
+  Route::post('/list-menu', [MenuController::class, 'addmenu'])->name('addmenu');
   Route::get('/list-user', [User::class, 'index'])->name('pages-list-user');
   Route::get('/list-member', [Member::class, 'index'])->name('pages-list-member');
   Route::get('/list-order', [Order::class, 'index'])->name('pages-list-order');
@@ -41,6 +42,8 @@ Route::middleware('auth')->group(function () {
 
 // Guest Route
 Route::get('/guestmenu', [MenuController::class, 'guestmenu'])->name('guestmenu');
+Route::post('/guestmenu/add', [MenuController::class, 'guestmenuadd'])->name('guestmenuadd');
+Route::post('/guestmenu/remove', [MenuController::class, 'guestmenuremove'])->name('guestmenuremove');
 
 
 // locale

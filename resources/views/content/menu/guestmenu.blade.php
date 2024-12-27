@@ -1,3 +1,4 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @extends('layouts/layoutMaster')
 
 @section('title', 'eCommerce Product Add - Apps')
@@ -39,107 +40,25 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-
-                            <div class="col-sm-3">
-                                <div class="card">
-                                    <img src="https://th.bing.com/th/id/OIP.37TWIN3RDF5Ui4NF9zDOXwHaHa?rs=1&pid=ImgDetMain"
-                                        class="card-img-top" height="200" alt="gambar">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Nasi Goreng</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional
-                                            content.</p>
-                                        <a href="#" class="btn btn-primary"><i
-                                                class="menu-icon tf-icons ti ti-shopping-cart-plus"></i> Order</a>
+                            @foreach ($data as $item)
+                                <div class="col-sm-3" style="margin-top: 10px">
+                                    <div class="card h-100">
+                                        <img src="{{ url('assets/img/menu') }}/{{ $item->gambarmenu }}" class="card-img-top"
+                                            height="200" alt="gambar">
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{ $item->namamenu }}
+                                            </h4>
+                                            <h7 class="card-title"><strong>Rp {{ $item->harga }}</strong></h7>
+                                            <p class="card-text">{{ $item->deskripsi }}</p>
+                                            <button id="add-to-cart" class="add-to-cart btn btn-primary"
+                                                data-id="{{ $item->id }}" data-name="{{ $item->namamenu }}"
+                                                data-price="{{ $item->harga }}"><i
+                                                    class="menu-icon tf-icons ti ti-shopping-cart-plus"></i> Order</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Text Align Left</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional
-                                            content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Text Align Left</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional
-                                            content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Text Align Left</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional
-                                            content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
-
-                        <br>
-
-                        <div class="row">
-
-                            <div class="col-sm-3">
-                                <div class="card">
-                                    <img src="https://th.bing.com/th/id/OIP.37TWIN3RDF5Ui4NF9zDOXwHaHa?rs=1&pid=ImgDetMain"
-                                        class="card-img-top" height="200" alt="gambar">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Text Align Left</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional
-                                            content.</p>
-                                        <a href="#" class="btn btn-primary"><i
-                                                class="menu-icon tf-icons ti ti-shopping-cart-plus"></i> Order</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Text Align Left</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional
-                                            content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Text Align Left</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional
-                                            content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Text Align Left</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional
-                                            content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
                     </div>
                 </div>
                 <div style="margin-bottom: 30px">
@@ -225,39 +144,23 @@
                             </div>
                             <div class="col-12 col-md-12"><label class="form-label mb-1">
                                     <h5><i class="fas fa-shopping-cart"></i> List Keranjang</h5>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 10%">No</th>
-                                                <th style="width: 40%">Nama Menu</th>
-                                                <th style="width: 20%">Qty</th>
-                                                <th>Harga</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td style="width: 30%">Nasi Goreng</td>
-                                                <td>
-                                                    <input type="number" value="1" min="1"
-                                                        class="form-control" style="width: 85%">
-                                                </td>
-                                                <td style="width: 30%">Rp0,-</td>
-                                                <td><button class="btn-sm btn-danger">X</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td style="width: 30%">Nasi Goreng</td>
-                                                <td>
-                                                    <input type="number" value="1" min="1"
-                                                        class="form-control" style="width: 85%">
-                                                </td>
-                                                <td style="width: 30%">Rp0,-</td>
-                                                <td><button class="btn-sm btn-danger">X</button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div id="list-table-div">
+                                        <div class="fixed-table-header">
+                                            <table class="table">
+                                                <tr>
+                                                    <th>Menu</th>
+                                                    <th style="width: 15%;text-align:center;">Harga</th>
+                                                    <th style="width: 15%;text-align:center;">Qty</th>
+                                                    <th style="width: 20%;text-align:center;">Subtotal</th>
+                                                    <th style="width: 20px;" class=""><i class="ti ti-trash"></i>
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div id="cart-container">
+                                        <p>Keranjang kosong.</p>
+                                    </div>
 
                                     <input type="text" class="form-control" placeholder="Keterangan Pesanan :"
                                         style="margin-top: 10px"></input>
@@ -271,5 +174,113 @@
         <!-- /Second column -->
     </div>
     </div>
-
 @endsection
+<script>
+    // $(document).ready(function() {
+    //     // Tambahkan produk ke keranjang
+    //     $('.add-to-cart').click(function() {
+    //         console.log('Hello');
+    //         const productId = $(this).data('id');
+    //         const productName = $(this).data('name');
+    //         const productPrice = $(this).data('price');
+
+    //         $.post('/guestmenu/add', {
+    //                 _token: '{{ csrf_token() }}',
+    //                 id: productId,
+    //                 name: productName,
+    //                 price: productPrice
+    //             },
+    //             function(response) {
+    //                 updateCart(response.cart);
+    //             });
+    //     });
+
+    //     $(document).on('click', '.remove-from-cart', function() {
+    //         const productId = $(this).data('id');
+
+    //         $.post('/guestmenu/remove', {
+    //             _token: '{{ csrf_token() }}',
+    //             id: productId
+    //         }, function(response) {
+    //             updateCart(response.cart);
+    //         });
+    //     });
+
+    //     // Hapus produk dari keranjang
+
+    //     // Perbarui tampilan keranjang
+    //     function updateCart(cart) {
+    //         if (Object.keys(cart).length > 0) {
+    //             let cartHtml = '';
+    //             $.each(cart, function(id, item) {
+    //                 cartHtml += `
+    //                   <tr>
+    //                       <td style="width: 26%;text-align:left;">${item.name}</td>
+    //                       <td style="width: 20%;text-align:left;">Rp ${new Intl.NumberFormat('id-ID').format(item.price)}</td>
+    //                       <td style="width: 20%;text-align:left;">${item.quantity}</td>
+    //                       <td style="width: 70px;text-align:left;">Rp ${new Intl.NumberFormat('id-ID').format(item.price * item.quantity)}</td>
+    //                       <td style="width: 9%"><button class="remove-from-cart btn btn-sm btn-icon btn-text-secondary rounded-pill waves-effect waves-light" data-id="${id}"><i class="ti ti-square-letter-x"></i></button></td>
+    //                   </tr>
+    //               `;
+    //             });
+    //             cartHtml += '</tbody></table>';
+    //             $('#cart-container').html(cartHtml);
+    //         } else {
+    //             $('#cart-container').html('<p>Keranjang kosong.</p>');
+    //         }
+    //     }
+    // });
+
+    $(document).ready(function() {
+        // Tambahkan produk ke keranjang
+        $('.add-to-cart').click(function() {
+            const productId = $(this).data('id');
+            const productName = $(this).data('name');
+            const productPrice = $(this).data('price');
+
+            $.post('/guestmenu/add', {
+                _token: '{{ csrf_token() }}',
+                id: productId,
+                name: productName,
+                price: productPrice
+            }, function(response) {
+                updateCart(response.cart);
+            });
+        });
+
+        // Hapus produk dari keranjang
+        $(document).on('click', '.remove-from-cart', function() {
+            const productId = $(this).data('id');
+
+            $.post('/guestmenu/remove', {
+                _token: '{{ csrf_token() }}',
+                id: productId
+            }, function(response) {
+                updateCart(response.cart);
+            });
+        });
+
+        // Perbarui tampilan keranjang
+        function updateCart(cart) {
+            if (Object.keys(cart).length > 0) {
+                let cartHtml =
+                    '';
+                $.each(cart, function(id, item) {
+                    cartHtml += `
+                            <tr>
+                                <td style="width: 26%;text-align:left;">${item.name}</td>
+                                <td style="width: 20%;text-align:left;">Rp ${new Intl.NumberFormat('id-ID').format(item.price)}</td>
+                                <td style="width: 20%;text-align:left;">${item.quantity}</td>
+                                <td style="width: 70px;text-align:left;">Rp ${new Intl.NumberFormat('id-ID').format(item.price * item.quantity)}</td>
+                                <td style="width: 9%"><button class="remove-from-cart btn btn-sm btn-icon btn-text-secondary rounded-pill waves-effect waves-light" data-id="${id}"><i class="ti ti-square-letter-x"></i></button></td>
+                            </tr>
+                        `;
+                });
+                cartHtml += '</tbody></table>';
+                $('#cart-container').html(cartHtml);
+            } else {
+                $('#cart-container').html('<p>Keranjang kosong.</p>');
+            }
+        }
+    });
+</script>

@@ -1,4 +1,5 @@
 import SwalPlugin from 'sweetalert2/dist/sweetalert2';
+import Swal from 'sweetalert2';
 
 const Swal = SwalPlugin.mixin({
   buttonsStyling: false,
