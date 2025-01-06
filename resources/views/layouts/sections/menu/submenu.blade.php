@@ -48,5 +48,15 @@ use Illuminate\Support\Facades\Route;
         @endif
       </li>
     @endforeach
+
+    {{-- Tambahkan item menu baru ke submenu Laporan --}}
+    @if (Route::currentRouteName() === 'pages-laporan' || isset($menu->submenu))
+      <li class="menu-item {{ Route::currentRouteName() == 'pages-products' ? 'active' : '' }}">
+        <a href="{{ route('pages-products') }}" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-box"></i>
+          <div>Product Information</div>
+        </a>
+      </li>
+    @endif
   @endif
 </ul>

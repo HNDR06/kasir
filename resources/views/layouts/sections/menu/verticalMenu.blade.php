@@ -77,6 +77,14 @@ $configData = Helper::appClasses();
       </li>
       @endif
     @endforeach
+
+    {{-- Tambahkan item menu baru untuk "Product Information" --}}
+    <li class="menu-item {{ Route::currentRouteName() == 'pages-products' ? 'active' : '' }}">
+      <a href="{{ route('pages-products') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-box"></i>
+        <div>Product Information</div>
+      </a>
+    </li>
   </ul>
 
 </aside>

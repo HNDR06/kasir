@@ -3,7 +3,7 @@
   $configData = Helper::appClasses();
 @endphp
 <!-- Horizontal Menu -->
-<aside id="layout-menu" class="layout-menu-horizontal menu-horizontal  menu bg-menu-theme flex-grow-0">
+<aside id="layout-menu" class="layout-menu-horizontal menu-horizontal menu bg-menu-theme flex-grow-0">
   <div class="{{$containerNav}} d-flex h-100">
     <ul class="menu-inner pb-2 pb-xl-0">
       @foreach ($menuData[1]->menu as $menu)
@@ -11,7 +11,7 @@
       {{-- active menu method --}}
       @php
         $activeClass = null;
-        $currentRouteName =  Route::currentRouteName();
+        $currentRouteName = Route::currentRouteName();
 
         if ($currentRouteName === $menu->slug) {
             $activeClass = 'active';
