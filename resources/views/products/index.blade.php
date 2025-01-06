@@ -47,7 +47,7 @@
         <thead class="border-top">
           <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Nama</th>
             <th>Description</th>
             <th>Price</th>
             <th>Stock</th>
